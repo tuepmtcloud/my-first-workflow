@@ -1,9 +1,15 @@
 name: My first workflow
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
+  pull_request: 
+    branches: 
+      - master
+  schedule:
+    - cron: '0 5 * * 1-5'
 
 jobs:
   build:
@@ -13,10 +19,10 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v2
 
-    - name: Use node.js 18
+    - name: Use node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: latest
 
     - name: Print a message
       run: echo "Hello, pmt"
