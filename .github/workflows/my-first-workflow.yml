@@ -26,3 +26,6 @@ jobs:
 
     - name: Print a message
       run: echo "Hello, pmt"
+
+    - name: Run custom action
+      uses: tuepmtcloud/greeting-action@main 
